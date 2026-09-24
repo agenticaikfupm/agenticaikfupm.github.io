@@ -19,6 +19,38 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
+<style>/* speaker thumbnails — used by the kickoff agenda and the case-study table */
+.speaker { display: flex; align-items: center; gap: .75rem; }
+.speaker__photo {
+  flex: none;
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 10%;
+  background: var(--bg-inset);
+  border: 2px solid var(--surface);
+  box-shadow: 0 0 0 1px var(--border), var(--shadow-sm);
+}
+.speaker__text { display: flex; flex-direction: column; min-width: 0; }
+.speaker__name { font-family: var(--font-display); font-weight: 650; color: var(--brand-ink); line-height: 1.3; }
+.speaker__role { font-size: .84rem; color: var(--muted); line-height: 1.45; margin-top: .1rem; }
+.timeline .speaker { margin-top: .5rem; }
+tbody td .speaker__role { max-width: 52ch; }
+/* the case-study block in the agenda: every speaker at a glance */
+.speaker-strip { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .65rem; }
+.speaker-strip img {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 10%;
+  background: var(--bg-inset);
+  border: 2px solid var(--surface);
+  box-shadow: 0 0 0 1px var(--border);
+}
+@media (max-width: 520px) {
+  .speaker { gap: .6rem; }
+  .speaker__photo { width: 44px; height: 44px; }
+}</style>
 <script>/* set the theme before first paint to avoid a flash */
 (function(){try{var t=localStorage.getItem('aikfupm-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
 document.documentElement.setAttribute('data-theme',t);if(t==='dark'){var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#08120e');}}catch(e){}})();</script>
@@ -118,23 +150,50 @@ document.documentElement.setAttribute('data-theme',t);if(t==='dark'){var m=docum
           <div>
             <ul class="timeline">
               <li><span class="t-when">1:00 &ndash; 1:03</span><span class="t-what">Opening and Orientation</span>
-                <p>MC</p></li>
+                  <div class="speaker">
+                  <img class="speaker__photo" src="assets/img/Pics/ISE.png" alt="Zainab Alnejaidi" width="54" height="54" loading="lazy" decoding="async">
+                  <span class="speaker__text"><span class="speaker__name">Zainab Alnejaidi</span><span class="speaker__role">ISE Club</span></span>
+                </div></li>
               <li><span class="t-when">1:03 &ndash; 1:08</span><span class="t-what">CCM Dean&rsquo;s Address</span>
-                <p>Dr. Abdullah Sultan &mdash; Dean of College of Computing &amp; Mathematics</p></li>
+                <div class="speaker">
+                  <img class="speaker__photo" src="assets/img/Pics/Abdullah.jpg" alt="Dr. Abdullah Sultan" width="54" height="54" loading="lazy" decoding="async">
+                  <span class="speaker__text"><span class="speaker__name">Dr. Abdullah Sultan</span><span class="speaker__role">Dean, College of Computing &amp; Mathematics</span></span>
+                </div></li>
               <li><span class="t-when">1:08 &ndash; 1:13</span><span class="t-what">Remarks from the ISE Department Chair</span>
-                <p>Dr. Yasser Almoghathawi &mdash; Chairman of Department of Industrial &amp; Systems Engineering</p></li>
+                <div class="speaker">
+                  <img class="speaker__photo" src="assets/img/Pics/Yasser.jpg" alt="Dr. Yasser Almoghathawi" width="54" height="54" loading="lazy" decoding="async">
+                  <span class="speaker__text"><span class="speaker__name">Dr. Yasser Almoghathawi</span><span class="speaker__role">Chairman, Department of Industrial &amp; Systems Engineering</span></span>
+                </div></li>
               <li><span class="t-when">1:13 &ndash; 1:20</span><span class="t-what">Community Vision, Mission, and Activities</span>
-                <p>Dr. Alaa Khamis &mdash; Coordinator of the Community</p></li>
+                <div class="speaker">
+                  <img class="speaker__photo" src="assets/img/Pics/Alaa.png" alt="Dr. Alaa Khamis" width="54" height="54" loading="lazy" decoding="async">
+                  <span class="speaker__text"><span class="speaker__name">Dr. Alaa Khamis</span><span class="speaker__role">Coordinator of the Community</span></span>
+                </div></li>
               <li><span class="t-when">1:20 &ndash; 2:10</span><span class="t-what">Agentic AI in Action: Case Studies</span>
                 <p>Multiple speakers, five minutes each &mdash; four minutes for the presentation and one for the
-                   transition. Full list below.</p></li>
+                   transition. <a href="#case-studies">Full list below</a>.</p>
+                <div class="speaker-strip" aria-hidden="true">
+                  <img src="assets/img/Pics/Maad.jpg" alt="" width="40" height="40" loading="lazy" decoding="async" title="Dr. Maad Al Owaifeer">
+                  <img src="assets/img/Pics/Yogesh.png" alt="" width="40" height="40" loading="lazy" decoding="async" title="Dr. Yogesh Dwivedi">
+                  <img src="assets/img/Pics/Daniel.jpeg" alt="" width="40" height="40" loading="lazy" decoding="async" title="Dr. Daniel Benevides da Costa">
+                  <img src="assets/img/Pics/Alaa.png" alt="" width="40" height="40" loading="lazy" decoding="async" title="Dr. Alaa Khamis">
+                  <img src="assets/img/Pics/Sunhwa.jpeg" alt="" width="40" height="40" loading="lazy" decoding="async" title="Dr. Sunhwa Park">
+                  <img src="assets/img/Pics/Ibrahim.jpg" alt="" width="40" height="40" loading="lazy" decoding="async" title="Dr. Ibrahim Wuni">
+                  <img src="assets/img/Pics/Muzammil.jpeg" alt="" width="40" height="40" loading="lazy" decoding="async" title="Dr. Muzammil Behzad">
+                  <img src="assets/img/Pics/Hamzah.jpg" alt="" width="40" height="40" loading="lazy" decoding="async" title="Dr. Hamzah Luqman">
+                  <img src="assets/img/Pics/Burhan.png" alt="" width="40" height="40" loading="lazy" decoding="async" title="Dr. Burhan SaifAddin">
+                  <img src="assets/img/Pics/Omar.jpg" alt="" width="40" height="40" loading="lazy" decoding="async" title="Dr. Omar Hamad">
+                </div></li>
               <li><span class="t-when">2:10 &ndash; 2:20</span><span class="t-what">Coffee Break</span></li>
               <li><span class="t-when">2:20 &ndash; 2:45</span><span class="t-what">Focus Groups: Formation, Breakout Discussions, and Coordinator Selection</span>
                 <p>MC + Mentors</p></li>
               <li><span class="t-when">2:45 &ndash; 2:55</span><span class="t-what">Focus Group Highlights and Recommendations</span>
                 <p>Each group presents its challenge, first activity, and leadership.</p></li>
               <li><span class="t-when">2:55 &ndash; 3:00</span><span class="t-what">Next Steps and Closing Remarks</span>
-                <p>Dr. Alaa Khamis</p></li>
+                <div class="speaker">
+                  <img class="speaker__photo" src="assets/img/Pics/Alaa.png" alt="Dr. Alaa Khamis" width="54" height="54" loading="lazy" decoding="async">
+                  <span class="speaker__text"><span class="speaker__name">Dr. Alaa Khamis</span><span class="speaker__role">Coordinator of the Community</span></span>
+                </div></li>
             </ul>
           </div>
         </div>
@@ -153,16 +212,16 @@ document.documentElement.setAttribute('data-theme',t);if(t==='dark'){var m=docum
           <table>
             <thead><tr><th>Time</th><th>Session</th><th>Speaker</th></tr></thead>
             <tbody>
-              <tr><td>1:20 &ndash; 1:25</td><td>Agentic AI for Institutional Intelligence</td><td>Dr. Maad Al Owaifeer &mdash; Director of the SDAIA-KFUPM Joint Research Center for Artificial Intelligence (JRCAI) and Chairman of Control &amp; Instrumentation Engineering Department</td></tr>
-              <tr><td>1:25 &ndash; 1:30</td><td>Agents for Business &amp; Finance</td><td>Dr. Yogesh Dwivedi &mdash; Director of the Interdisciplinary Research Center for Finance and Digital Economy (IRC-Fintech) and Riyad Bank Chair Professor of Digital Business</td></tr>
-              <tr><td>1:30 &ndash; 1:35</td><td>Agentic AI for Telecommunication</td><td>Dr. Daniel Benevides da Costa &mdash; Director of the Interdisciplinary Research Center for Communication Systems and Sensing (IRC-CSS) and RDIA Chair Professor of Wireless Communications</td></tr>
-              <tr><td>1:35 &ndash; 1:40</td><td>Agentic AI for Smart Mobility &amp; Logistics</td><td>Dr. Alaa Khamis &mdash; AI for Smart Mobility Lab, IRC for Smart Mobility and Logistics</td></tr>
-              <tr><td>1:40 &ndash; 1:45</td><td>Agentic AI for Process Safety</td><td>Dr. Sunhwa Park &mdash; Chemical Engineering Department</td></tr>
-              <tr><td>1:45 &ndash; 1:50</td><td>Agentic AI for Crane Planning</td><td>Dr. Ibrahim Wuni &mdash; Architectural Engineering &amp; Construction Management</td></tr>
-              <tr><td>1:50 &ndash; 1:55</td><td>Multimodal Agentic AI for Healthcare</td><td>Dr. Muzammil Behzad &mdash; Information &amp; Computer Science</td></tr>
-              <tr><td>1:55 &ndash; 2:00</td><td>Agentic AI for NLP</td><td>Dr. Hamzah Luqman &mdash; Information &amp; Computer Science</td></tr>
-              <tr><td>2:00 &ndash; 2:05</td><td>Agentic AI for Scientific Discovery and Lab Automation</td><td>Dr. Burhan SaifAddin &mdash; Physics Department</td></tr>
-              <tr><td>2:05 &ndash; 2:10</td><td>Agentic AI for Building Software Systems</td><td>Dr. Omar Hamad &mdash; Information &amp; Computer Science</td></tr>
+              <tr><td>1:20 &ndash; 1:25</td><td>Agentic AI for Institutional Intelligence</td><td><div class="speaker"><img class="speaker__photo" src="assets/img/Pics/Maad.jpg" alt="Dr. Maad Al Owaifeer" width="54" height="54" loading="lazy" decoding="async"><span class="speaker__text"><span class="speaker__name">Dr. Maad Al Owaifeer</span><span class="speaker__role">Director of the SDAIA-KFUPM Joint Research Center for Artificial Intelligence (JRCAI) and Chairman of Control &amp; Instrumentation Engineering Department</span></span></div></td></tr>
+              <tr><td>1:25 &ndash; 1:30</td><td>Agents for Business &amp; Finance</td><td><div class="speaker"><img class="speaker__photo" src="assets/img/Pics/Yogesh.png" alt="Dr. Yogesh Dwivedi" width="54" height="54" loading="lazy" decoding="async"><span class="speaker__text"><span class="speaker__name">Dr. Yogesh Dwivedi</span><span class="speaker__role">Director of the Interdisciplinary Research Center for Finance and Digital Economy (IRC-Fintech) and Riyad Bank Chair Professor of Digital Business</span></span></div></td></tr>
+              <tr><td>1:30 &ndash; 1:35</td><td>Agentic AI for Telecommunication</td><td><div class="speaker"><img class="speaker__photo" src="assets/img/Pics/Daniel.jpeg" alt="Dr. Daniel Benevides da Costa" width="54" height="54" loading="lazy" decoding="async"><span class="speaker__text"><span class="speaker__name">Dr. Daniel Benevides da Costa</span><span class="speaker__role">Director of the Interdisciplinary Research Center for Communication Systems and Sensing (IRC-CSS) and RDIA Chair Professor of Wireless Communications</span></span></div></td></tr>
+              <tr><td>1:35 &ndash; 1:40</td><td>Agentic AI for Smart Mobility &amp; Logistics</td><td><div class="speaker"><img class="speaker__photo" src="assets/img/Pics/Alaa.png" alt="Dr. Alaa Khamis" width="54" height="54" loading="lazy" decoding="async"><span class="speaker__text"><span class="speaker__name">Dr. Alaa Khamis</span><span class="speaker__role">AI for Smart Mobility Lab, IRC for Smart Mobility and Logistics</span></span></div></td></tr>
+              <tr><td>1:40 &ndash; 1:45</td><td>Agentic AI for Process Safety</td><td><div class="speaker"><img class="speaker__photo" src="assets/img/Pics/Sunhwa.jpeg" alt="Dr. Sunhwa Park" width="54" height="54" loading="lazy" decoding="async"><span class="speaker__text"><span class="speaker__name">Dr. Sunhwa Park</span><span class="speaker__role">Chemical Engineering Department</span></span></div></td></tr>
+              <tr><td>1:45 &ndash; 1:50</td><td>Agentic AI for Crane Planning</td><td><div class="speaker"><img class="speaker__photo" src="assets/img/Pics/Ibrahim.jpg" alt="Dr. Ibrahim Wuni" width="54" height="54" loading="lazy" decoding="async"><span class="speaker__text"><span class="speaker__name">Dr. Ibrahim Wuni</span><span class="speaker__role">Architectural Engineering &amp; Construction Management</span></span></div></td></tr>
+              <tr><td>1:50 &ndash; 1:55</td><td>Multimodal Agentic AI for Healthcare</td><td><div class="speaker"><img class="speaker__photo" src="assets/img/Pics/Muzammil.jpeg" alt="Dr. Muzammil Behzad" width="54" height="54" loading="lazy" decoding="async"><span class="speaker__text"><span class="speaker__name">Dr. Muzammil Behzad</span><span class="speaker__role">Information &amp; Computer Science</span></span></div></td></tr>
+              <tr><td>1:55 &ndash; 2:00</td><td>Agentic AI for NLP</td><td><div class="speaker"><img class="speaker__photo" src="assets/img/Pics/Hamzah.jpg" alt="Dr. Hamzah Luqman" width="54" height="54" loading="lazy" decoding="async"><span class="speaker__text"><span class="speaker__name">Dr. Hamzah Luqman</span><span class="speaker__role">Information &amp; Computer Science</span></span></div></td></tr>
+              <tr><td>2:00 &ndash; 2:05</td><td>Agentic AI for Scientific Discovery and Lab Automation</td><td><div class="speaker"><img class="speaker__photo" src="assets/img/Pics/Burhan.png" alt="Dr. Burhan SaifAddin" width="54" height="54" loading="lazy" decoding="async"><span class="speaker__text"><span class="speaker__name">Dr. Burhan SaifAddin</span><span class="speaker__role">Physics Department</span></span></div></td></tr>
+              <tr><td>2:05 &ndash; 2:10</td><td>Agentic AI for Building Software Systems</td><td><div class="speaker"><img class="speaker__photo" src="assets/img/Pics/Omar.jpg" alt="Dr. Omar Hamad" width="54" height="54" loading="lazy" decoding="async"><span class="speaker__text"><span class="speaker__name">Dr. Omar Hamad</span><span class="speaker__role">Information &amp; Computer Science</span></span></div></td></tr>
             </tbody>
           </table>
         </div>
